@@ -1,0 +1,50 @@
+{
+  "kelly": {
+    "total_score": 65.30099996642946,
+    "lip_sync_score": 100.0,
+    "movement_score": 14.165280390880039,
+    "audio_score": 98.17443905038719,
+    "detailed_metrics": {
+      "lip_sync": {
+        "cue_count": 311,
+        "avg_transition": 0.16222580645161291,
+        "std_transition": 0.1341876898535054,
+        "min_transition": 0.03999999999999915,
+        "max_transition": 0.8999999999999986
+      },
+      "movement": {
+        "movement_correlation": 0.1416528039088004,
+        "training_movement_std": 0.12369648367166519,
+        "generated_movement_std": 0.08048500120639801
+      },
+      "audio": {
+        "audio_correlation": 0.981744390503872,
+        "duration_match": 0.0
+      }
+    }
+  },
+  "kyle": {
+    "total_score": 56.67632557973009,
+    "lip_sync_score": 100.0,
+    "movement_score": 0.0,
+    "audio_score": 83.38162789865044,
+    "detailed_metrics": {
+      "lip_sync": {
+        "cue_count": 312,
+        "avg_transition": 0.15668810289389065,
+        "std_transition": 0.14002857707857994,
+        "min_transition": 0.020000000000000018,
+        "max_transition": 0.8999999999999986
+      },
+      "movement": {
+        "movement_correlation": -0.055129616303430565,
+        "training_movement_std": 0.24573153257369995,
+        "generated_movement_std": 0.09881401062011719
+      },
+      "audio": {
+        "audio_correlation": 0.8338162789865043,
+        "duration_match": 0.0
+      }
+    }
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "kelly_training_video": {
+    "resolution": "1920x1080",
+    "fps": 25.0,
+    "duration": 50.52,
+    "bitrate": 2434001,
+    "audio_sample_rate": 48000,
+    "audio_channels": 2
+  },
+  "kyle_training_video": {
+    "resolution": "1920x1080",
+    "fps": 25.0,
+    "duration": 49.04,
+    "bitrate": 5547137,
+    "audio_sample_rate": 48000,
+    "audio_channels": 2
+  },
+  "image_analysis": {
+    "kelly_image": {
+      "width": 6000,
+      "height": 3375,
+      "aspect_ratio": "6000:3375",
+      "pix_fmt": "rgba"
+    },
+    "kyle_image": {
+      "width": 6000,
+      "height": 3375,
+      "aspect_ratio": "6000:3375",
+      "pix_fmt": "rgba"
+    }
+  },
+  "kelly_training_lipsync": {
+    "duration": 50.53,
+    "cue_count": 311,
+    "cues_per_second": 6.154759548782901,
+    "avg_transition_time": 0.16222580645161291,
+    "shape_distribution": {
+      "X": 14,
+      "C": 70,
+      "E": 35,
+      "F": 39,
+      "B": 95,
+      "A": 26,
+      "H": 9,
+      "G": 16,
+      "D": 7
+    },
+    "min_transition": 0.03999999999999915,
+    "max_transition": 0.8999999999999986
+  },
+  "kyle_training_lipsync": {
+    "duration": 49.02,
+    "cue_count": 312,
+    "cues_per_second": 6.364749082007344,
+    "avg_transition_time": 0.15668810289389065,
+    "shape_distribution": {
+      "X": 16,
+      "D": 15,
+      "B": 102,
+      "A": 34,
+      "C": 72,
+      "F": 27,
+      "E": 26,
+      "G": 13,
+      "H": 7
+    },
+    "min_transition": 0.020000000000000018,
+    "max_transition": 0.8999999999999986
+  },
+  "kelly_generated_lipsync": {
+    "duration": 50.53,
+    "cue_count": 309,
+    "cues_per_second": 6.1151791015238475,
+    "avg_transition_time": 0.16327922077922077,
+    "shape_distribution": {
+      "X": 14,
+      "C": 70,
+      "E": 35,
+      "F": 37,
+      "B": 95,
+      "A": 26,
+      "H": 9,
+      "G": 15,
+      "D": 8
+    },
+    "min_transition": 0.03999999999999915,
+    "max_transition": 0.889999999999997
+  },
+  "kyle_generated_lipsync": {
+    "duration": 50.38,
+    "cue_count": 318,
+    "cues_per_second": 6.312028582770941,
+    "avg_transition_time": 0.15801261829653,
+    "shape_distribution": {
+      "X": 15,
+      "C": 73,
+      "B": 107,
+      "A": 34,
+      "F": 27,
+      "E": 28,
+      "G": 13,
+      "D": 13,
+      "H": 8
+    },
+    "min_transition": 0.03999999999999915,
+    "max_transition": 1.0500000000000043
+  },
+  "recommendations": [
+    {
+      "category": "Resolution",
+      "issue": "Current avatars are 512px, training videos are 1920x1080",
+      "recommendation": "Use size_of_image=1024 or higher in SadTalker for better quality",
+      "priority": "HIGH"
+    }
+  ]
+}

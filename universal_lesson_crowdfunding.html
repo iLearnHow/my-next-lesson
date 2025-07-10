@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universal Lessons - Community Funded Education API</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .stats {
+            display: flex;
+            gap: 2rem;
+            font-size: 0.9rem;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-weight: bold;
+            color: #667eea;
+            font-size: 1.1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .hero {
+            text-align: center;
+            color: white;
+            margin-bottom: 3rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .api-demo {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            padding: 1.5rem;
+            font-family: 'Monaco', monospace;
+            font-size: 0.9rem;
+            margin: 2rem auto;
+            max-width: 600px;
+            text-align: left;
+        }
+
+        .lessons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .lesson-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .lesson-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .lesson-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .lesson-title {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .lesson-emoji {
+            font-size: 2rem;
+        }
+
+        .funding-progress {
+            margin-bottom: 1.5rem;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 12px;
+            background: #f0f0f0;
+            border-radius: 6px;
+            overflow: hidden;
+            margin-bottom: 0.5rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #4CAF50, #45a049);
+            border-radius: 6px;
+            transition: width 0.3s ease;
+        }
+
+        .progress-text {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .what-creates {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .what-creates h4 {
+            color: #333;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .variations-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .variation-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contribution-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+        }
+
+        .contribute-btn {
+            padding: 0.75rem 1rem;
+            border: 2px solid #667eea;
+            border-radius: 8px;
+            background: white;
+            color: #667eea;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .contribute-btn:hover {
+            background: #667eea;
+            color: white;
+            transform: scale(1.02);
+        }
+
+        .contribute-btn.featured {
+            background: #667eea;
+            color: white;
+            grid-column: 1 / -1;
+            font-size: 1rem;
+            padding: 1rem;
+        }
+
+        .contribute-btn.featured:hover {
+            background: #5a6fd8;
+            transform: scale(1.05);
+        }
+
+        .funded {
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+        }
+
+        .funded .lesson-title,
+        .funded .progress-text,
+        .funded .variations-grid {
+            color: white;
+        }
+
+        .funded .what-creates {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .funded .what-creates h4 {
+            color: white;
+        }
+
+        .funded .contribute-btn {
+            background: white;
+            color: #4CAF50;
+            border-color: white;
+        }
+
+        .production-status {
+            text-align: center;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            color: white;
+            font-weight: 600;
+        }
+
+        .available {
+            background: linear-gradient(135deg, #2196F3, #1976D2);
+            color: white;
+        }
+
+        .available .lesson-title,
+        .available .progress-text,
+        .available .variations-grid {
+            color: white;
+        }
+
+        .available .what-creates {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .available .what-creates h4 {
+            color: white;
+        }
+
+        .api-access {
+            text-align: center;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            color: white;
+            font-weight: 600;
+        }
+
+        .api-link {
+            display: inline-block;
+            margin-top: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: white;
+            color: #2196F3;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.9rem;
+        }
+
+        .pricing-banner {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .pricing-banner h2 {
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+
+        .price-subtitle {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .features-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #333;
+        }
+
+        .cta-button {
+            background: #667eea;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: #5a6fd8;
+            transform: scale(1.05);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+        }
+
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            max-width: 500px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .amount-selection {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .amount-option {
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .amount-option:hover,
+        .amount-option.selected {
+            border-color: #667eea;
+            background: #f8f9ff;
+        }
+
+        .amount-value {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+
+        .amount-description {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .payment-form {
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .payment-button {
+            width: 100%;
+            background: #667eea;
+            color: white;
+            padding: 1rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .payment-button:hover {
+            background: #5a6fd8;
+        }
+
+        .impact-preview {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .lessons-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contribution-options {
+                grid-template-columns: 1fr;
+            }
+            
+            .features-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">🎓 Universal Lessons</div>
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number">127</div>
+                    <div>Contributors</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">$2,450</div>
+                    <div>Raised</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">8</div>
+                    <div>Funded</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="hero">
+            <h1>Community-Funded Educational API</h1>
+            <p>Help developers build better learning apps by funding professional lesson creation. Every contribution creates content used by thousands.</p>
+            <div class="api-demo">
+curl -H "Authorization: Bearer API_KEY" \<br>
+&nbsp;&nbsp;https://api.universallessons.com/lessons/negotiation?age=25&tone=fun
+            </div>
+        </div>
+
+        <div class="pricing-banner">
+            <h2>Developer API Access</h2>
+            <div class="price">$20<span style="font-size: 1rem; color: #666;">/month</span></div>
+            <div class="price-subtitle">No-brainer pricing for unlimited educational content</div>
+            <div class="features-list">
+                <div class="feature">✅ Unlimited API calls</div>
+                <div class="feature">✅ All age variations (2-102)</div>
+                <div class="feature">✅ All tones & languages</div>
+                <div class="feature">✅ Audio + Video files</div>
+                <div class="feature">✅ Commercial license</div>
+                <div class="feature">✅ 99.9% uptime SLA</div>
+            </div>
+            <button class="cta-button" onclick="alert('Coming soon! Sign up for early access.')">Get API Access</button>
+        </div>
+
+        <div class="lessons-grid">
+            <!-- Available Lesson -->
+            <div class="lesson-card available">
+                <div class="lesson-header">
+                    <div class="lesson-title">🤝 Negotiation Skills</div>
+                    <div class="lesson-emoji">✅</div>
+                </div>
+                
+                <div class="api-access">
+                    <div>✨ Available via API</div>
+                    <a href="#" class="api-link">View API Docs</a>
+                </div>
+                
+                <div class="what-creates">
+                    <h4>15 Professional Variations Created:</h4>
+                    <div class="variations-grid">
+                        <div class="variation-item">👶 Child (5yo)</div>
+                        <div class="variation-item">👵 Grandmother tone</div>
+                        <div class="variation-item">🧑 Teen (15yo)</div>
+                        <div class="variation-item">🎉 Fun tone</div>
+                        <div class="variation-item">👨 Adult (30yo)</div>
+                        <div class="variation-item">💼 Neutral tone</div>
+                        <div class="variation-item">👨‍💼 Midlife (50yo)</div>
+                        <div class="variation-item">🎤 Professional audio</div>
+                        <div class="variation-item">👴 Senior (70yo)</div>
+                        <div class="variation-item">🎥 HeyGen video</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Funded Lesson -->
+            <div class="lesson-card funded">
+                <div class="lesson-header">
+                    <div class="lesson-title">🧬 Molecular Biology</div>
+                    <div class="lesson-emoji">🎬</div>
+                </div>
+                
+                <div class="production-status">
+                    🎬 In Production - Videos rendering!
+                </div>
+                
+                <div class="funding-progress">
+                    <div class="progress-header">
+                        <span>Funded!</span>
+                        <span>$50 / $50</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 100%"></div>
+                    </div>
+                    <div class="progress-text">12 amazing contributors • Fully funded!</div>
+                </div>
+                
+                <div class="what-creates">
+                    <h4>Creating 15 lesson variations:</h4>
+                    <div class="variations-grid">
+                        <div class="variation-item">👶 Child-friendly science</div>
+                        <div class="variation-item">👵 Gentle wonder</div>
+                        <div class="variation-item">🧑 Teen biology focus</div>
+                        <div class="variation-item">🎉 Science adventure</div>
+                        <div class="variation-item">👨 Health applications</div>
+                        <div class="variation-item">💼 Professional facts</div>
+                        <div class="variation-item">👨‍💼 Wellness focus</div>
+                        <div class="variation-item">🎤 Expert narration</div>
+                        <div class="variation-item">👴 Life appreciation</div>
+                        <div class="variation-item">🎥 Engaging visuals</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Needs Funding -->
+            <div class="lesson-card">
+                <div class="lesson-header">
+                    <div class="lesson-title">💃 Dance Expression</div>
+                    <div class="lesson-emoji">🎯</div>
+                </div>
+                
+                <div class="funding-progress">
+                    <div class="progress-header">
+                        <span>7 supporters</span>
+                        <span>$35 / $50</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 70%"></div>
+                    </div>
+                    <div class="progress-text">$15 away from production!</div>
+                </div>
+                
+                <div class="what-creates">
+                    <h4>Will create 15 lesson variations:</h4>
+                    <div class="variations-grid">
+                        <div class="variation-item">👶 Joyful movement</div>
+                        <div class="variation-item">👵 Cultural wisdom</div>
+                        <div class="variation-item">🧑 Self-expression</div>
+                        <div class="variation-item">🎉 Dance party energy</div>
+                        <div class="variation-item">👨 Embodied wellness</div>
+                        <div class="variation-item">💼 Cultural respect</div>
+                        <div class="variation-item">👨‍💼 Community building</div>
+                        <div class="variation-item">🎤 Inspiring voices</div>
+                        <div class="variation-item">👴 Movement celebration</div>
+                        <div class="variation-item">🎥 Beautiful demos</div>
+                    </div>
+                </div>
+                
+                <div class="contribution-options">
+                    <button class="contribute-btn" data-lesson="dance" data-amount="5">
+                        Support $5
+                    </button>
+                    <button class="contribute-btn" data-lesson="dance" data-amount="10">
+                        Audio $10
+                    </button>
+                    <button class="contribute-btn" data-lesson="dance" data-amount="25">
+                        Video $25
+                    </button>
+                    <button class="contribute-btn featured" data-lesson="dance" data-amount="50">
+                        🌟 Full Producer $50
+                    </button>
+                </div>
+            </div>
+
+            <!-- Another Needs Funding -->
+            <div class="lesson-card">
+                <div class="lesson-header">
+                    <div class="lesson-title">🔬 Optics & Light</div>
+                    <div class="lesson-emoji">💡</div>
+                </div>
+                
+                <div class="funding-progress">
+                    <div class="progress-header">
+                        <span>3 supporters</span>
+                        <span>$15 / $50</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 30%"></div>
+                    </div>
+                    <div class="progress-text">$35 away from production</div>
+                </div>
+                
+                <div class="what-creates">
+                    <h4>Will create 15 lesson variations:</h4>
+                    <div class="variations-grid">
+                        <div class="variation-item">👶 Light & rainbows</div>
+                        <div class="variation-item">👵 Wonder at nature</div>
+                        <div class="variation-item">🧑 How eyes work</div>
+                        <div class="variation-item">🎉 Light adventures</div>
+                        <div class="variation-item">👨 Practical optics</div>
+                        <div class="variation-item">💼 Scientific principles</div>
+                        <div class="variation-item">👨‍💼 Technology applications</div>
+                        <div class="variation-item">🎤 Clear explanations</div>
+                        <div class="variation-item">👴 Lifetime of seeing</div>
+                        <div class="variation-item">🎥 Visual demonstrations</div>
+                    </div>
+                </div>
+                
+                <div class="contribution-options">
+                    <button class="contribute-btn" data-lesson="optics" data-amount="5">
+                        Support $5
+                    </button>
+                    <button class="contribute-btn" data-lesson="optics" data-amount="10">
+                        Audio $10
+                    </button>
+                    <button class="contribute-btn" data-lesson="optics" data-amount="25">
+                        Video $25
+                    </button>
+                    <button class="contribute-btn featured" data-lesson="optics" data-amount="50">
+                        🌟 Full Producer $50
+                    </button>
+                </div>
+            </div>
+
+            <!-- Future Lesson -->
+            <div class="lesson-card" style="opacity: 0.7;">
+                <div class="lesson-header">
+                    <div class="lesson-title">🎭 Theater Arts</div>
+                    <div class="lesson-emoji">⏳</div>
+                </div>
+                
+                <div class="funding-progress">
+                    <div class="progress-header">
+                        <span>Coming soon</span>
+                        <span>$0 / $50</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
+                    </div>
+                    <div class="progress-text">Campaign launches when Dance Expression is funded</div>
+                </div>
+                
+                <div class="what-creates">
+                    <h4>Will create 15 lesson variations:</h4>
+                    <div class="variations-grid">
+                        <div class="variation-item">👶 Storytelling play</div>
+                        <div class="variation-item">👵 Life stories</div>
+                        <div class="variation-item">🧑 Character building</div>
+                        <div class="variation-item">🎉 Performance fun</div>
+                        <div class="variation-item">👨 Communication skills</div>
+                        <div class="variation-item">💼 Professional presentation</div>
+                        <div class="variation-item">👨‍💼 Leadership presence</div>
+                        <div class="variation-item">🎤 Voice coaching</div>
+                        <div class="variation-item">👴 Wisdom sharing</div>
+                        <div class="variation-item">🎥 Performance demos</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Another Future Lesson -->
+            <div class="lesson-card" style="opacity: 0.7;">
+                <div class="lesson-header">
+                    <div class="lesson-title">🌿 Ecology Systems</div>
+                    <div class="lesson-emoji">⏳</div>
+                </div>
+                
+                <div class="funding-progress">
+                    <div class="progress-header">
+                        <span>Coming soon</span>
+                        <span>$0 / $50</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
+                    </div>
+                    <div class="progress-text">Available for funding soon</div>
+                </div>
+                
+                <div class="what-creates">
+                    <h4>Will create 15 lesson variations:</h4>
+                    <div class="variations-grid">
+                        <div class="variation-item">👶 Nature connections</div>
+                        <div class="variation-item">👵 Environmental wisdom</div>
+                        <div class="variation-item">🧑 Ecosystem balance</div>
+                        <div class="variation-item">🎉 Nature adventures</div>
+                        <div class="variation-item">👨 Sustainability focus</div>
+                        <div class="variation-item">💼 Scientific systems</div>
+                        <div class="variation-item">👨‍💼 Environmental leadership</div>
+                        <div class="variation-item">🎤 Nature sounds</div>
+                        <div class="variation-item">👴 Lifetime observations</div>
+                        <div class="variation-item">🎥 Beautiful nature</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contribution Modal -->
+    <div id="contributionModal" class="modal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeModal()">&times;</button>
+            <div class="modal-header">
+                <div class="modal-title" id="modalTitle">Support Dance Expression</div>
+                <div style="color: #666; font-size: 0.9rem;">Help create 15 professional lesson variations</div>
+            </div>
+            
+            <div class="impact-preview" id="impactPreview">
+                <strong>Your $25 contribution will:</strong><br>
+                Fund half the video production costs<br>
+                Help create lessons for thousands of learners
+            </div>
+            
+            <div class="amount-selection">
+                <div class="amount-option" data-amount="5">
+                    <div class="amount-value">$5</div>
+                    <div class="amount-description">Support one lesson variation</div>
+                </div>
+                <div class="amount-option" data-amount="10">
+                    <div class="amount-value">$10</div>
+                    <div class="amount-description">Fund all audio production</div>
+                </div>
+                <div class="amount-option" data-amount="25">
+                    <div class="amount-value">$25</div>
+                    <div class="amount-description">Champion video creation</div>
+                </div>
+                <div class="amount-option" data-amount="50">
+                    <div class="amount-value">$50</div>
+                    <div class="amount-description">Full lesson producer</div>
+                </div>
+            </div>
+            
+            <form class="payment-form">
+                <div class="form-group">
+                    <label class="form-label">Name</label>
+                    <input type="text" class="form-input" placeholder="Your name" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-input" placeholder="your@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Card Number</label>
+                    <input type="text" class="form-input" placeholder="4242 4242 4242 4242" required>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div class="form-group">
+                        <label class="form-label">Expiry</label>
+                        <input type="text" class="form-input" placeholder="MM/YY" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">CVC</label>
+                        <input type="text" class="form-input" placeholder="123" required>
+                    </div>
+                </div>
+            </form>
+            
+            <button class="payment-button" onclick="processPayment()">
+                <span id="paymentButtonText">Contribute $25</span>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        let selectedLesson = '';
+        let selectedAmount = 25;
+
+        // Handle contribution button clicks
+        document.querySelectorAll('.contribute-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                selectedLesson = this.dataset.lesson;
+                selectedAmount = parseInt(this.dataset.amount);
+                openModal();
+            });
+        });
+
+        // Handle amount selection in modal
+        document.querySelectorAll('.amount-option').forEach(option => {
+            option.addEventListener('click', function() {
+                document.querySelectorAll('.amount-option').forEach(opt => opt.classList.remove('selected'));
+                this.classList.add('selected');
+                selectedAmount = parseInt(this.dataset.amount);
+                updateModalContent();
+            });
+        });
+
+        function openModal() {
+            const modal = document.getElementById('contributionModal');
+            const lessonNames = {
+                'dance': 'Dance Expression',
+                'optics': 'Optics & Light',
+                'biology': 'Molecular Biology'
+            };
+            
+            document.getElementById('modalTitle').textContent = `Support ${lessonNames[selectedLesson] || 'This Lesson'}`;
+            
+            // Select the corresponding amount option
+            document.querySelectorAll('.amount-option').forEach(opt => opt.classList.remove('selected'));
+            document.querySelector(`[data-amount="${selectedAmount}"]`).classList.add('selected');
+            
+            updateModalContent();
+            modal.style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('contributionModal').style.display = 'none';
+        }
+
+        function updateModalContent() {
+            const impacts = {
+                5: "Support one lesson variation and help make quality education accessible",
+                10: "Fund the professional audio narration for all age groups and tones",
+                25: "Champion the video production and help create engaging visual content",
+                50: "Become a full lesson producer and get credited in the final product"
+            };
+
+            const impactPreview = document.getElementById('impactPreview');
+            impactPreview.innerHTML = `
+                <strong>Your ${selectedAmount} contribution will:</strong><br>
+                ${impacts[selectedAmount]}<br>
+                <small style="opacity: 0.8;">Help developers serve thousands of learners worldwide</small>
+            `;
+
+            document.getElementById('paymentButtonText').textContent = `Contribute ${selectedAmount}`;
+        }
+
+        function processPayment() {
+            const paymentButton = document.querySelector('.payment-button');
+            const originalText = paymentButton.textContent;
+            
+            paymentButton.textContent = 'Processing...';
+            paymentButton.disabled = true;
+
+            // Simulate payment processing
+            setTimeout(() => {
+                // Simulate 95% success rate
+                if (Math.random() > 0.05) {
+                    // Success
+                    paymentButton.textContent = '✅ Thank you!';
+                    paymentButton.style.background = '#4CAF50';
+                    
+                    setTimeout(() => {
+                        closeModal();
+                        showSuccessMessage();
+                        updateLessonProgress();
+                        paymentButton.textContent = originalText;
+                        paymentButton.style.background = '#667eea';
+                        paymentButton.disabled = false;
+                    }, 2000);
+                } else {
+                    // Failure
+                    paymentButton.textContent = 'Payment failed - try again';
+                    paymentButton.style.background = '#f44336';
+                    
+                    setTimeout(() => {
+                        paymentButton.textContent = originalText;
+                        paymentButton.style.background = '#667eea';
+                        paymentButton.disabled = false;
+                    }, 3000);
+                }
+            }, 2000);
+        }
+
+        function showSuccessMessage() {
+            const successDiv = document.createElement('div');
+            successDiv.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: #4CAF50;
+                color: white;
+                padding: 1rem 2rem;
+                border-radius: 10px;
+                font-weight: 600;
+                z-index: 1001;
+                animation: slideIn 0.3s ease;
+            `;
+            successDiv.innerHTML = `
+                ✅ Contribution successful!<br>
+                <small>You'll get updates when the lesson goes live</small>
+            `;
+            
+            document.body.appendChild(successDiv);
+            
+            setTimeout(() => {
+                successDiv.remove();
+            }, 5000);
+        }
+
+        function updateLessonProgress() {
+            // Update the progress for the selected lesson
+            const lessonCard = document.querySelector(`[data-lesson="${selectedLesson}"]`).closest('.lesson-card');
+            if (!lessonCard) return;
+
+            const progressFill = lessonCard.querySelector('.progress-fill');
+            const progressText = lessonCard.querySelector('.progress-text');
+            const progressHeader = lessonCard.querySelector('.progress-header');
+            
+            if (selectedLesson === 'dance') {
+                const newAmount = 35 + selectedAmount;
+                const percentage = Math.min((newAmount / 50) * 100, 100);
+                
+                progressFill.style.width = percentage + '%';
+                
+                if (newAmount >= 50) {
+                    progressHeader.innerHTML = '<span>Funded!</span><span>$50 / $50</span>';
+                    progressText.textContent = '8 amazing contributors • Fully funded!';
+                    lessonCard.classList.add('funded');
+                    
+                    // Update contribution buttons
+                    lessonCard.querySelector('.contribution-options').innerHTML = `
+                        <div class="production-status">
+                            🎬 Entering Production Queue!
+                        </div>
+                    `;
+                } else {
+                    const remaining = 50 - newAmount;
+                    progressHeader.innerHTML = `<span>8 supporters</span><span>${newAmount} / $50</span>`;
+                    progressText.textContent = `${remaining} away from production!`;
+                }
+            }
+            
+            if (selectedLesson === 'optics') {
+                const newAmount = 15 + selectedAmount;
+                const percentage = Math.min((newAmount / 50) * 100, 100);
+                
+                progressFill.style.width = percentage + '%';
+                
+                if (newAmount >= 50) {
+                    progressHeader.innerHTML = '<span>Funded!</span><span>$50 / $50</span>';
+                    progressText.textContent = '4 amazing contributors • Fully funded!';
+                    lessonCard.classList.add('funded');
+                    
+                    lessonCard.querySelector('.contribution-options').innerHTML = `
+                        <div class="production-status">
+                            🎬 Entering Production Queue!
+                        </div>
+                    `;
+                } else {
+                    const remaining = 50 - newAmount;
+                    const supporters = 3 + Math.floor(selectedAmount / 15);
+                    progressHeader.innerHTML = `<span>${supporters} supporters</span><span>${newAmount} / $50</span>`;
+                    progressText.textContent = `${remaining} away from production`;
+                }
+            }
+
+            // Update header stats
+            updateHeaderStats();
+        }
+
+        function updateHeaderStats() {
+            const stats = document.querySelectorAll('.stat-number');
+            const currentContributors = parseInt(stats[0].textContent);
+            const currentRaised = parseInt(stats[1].textContent.replace(', '').replace(',', ''));
+            
+            stats[0].textContent = currentContributors + 1;
+            stats[1].textContent = ' + (currentRaised + selectedAmount).toLocaleString();
+        }
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(event) {
+            const modal = document.getElementById('contributionModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Add animation keyframes
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            
+            .progress-fill {
+                transition: width 0.8s ease;
+            }
+            
+            .lesson-card {
+                transition: all 0.5s ease;
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Demo data updates every few seconds to show activity
+        setInterval(() => {
+            // Randomly update progress on unfunded lessons
+            const unfundedCards = document.querySelectorAll('.lesson-card:not(.funded):not(.available)');
+            if (unfundedCards.length > 0 && Math.random() > 0.7) {
+                const randomCard = unfundedCards[Math.floor(Math.random() * unfundedCards.length)];
+                const progressFill = randomCard.querySelector('.progress-fill');
+                const currentWidth = parseFloat(progressFill.style.width || '0');
+                if (currentWidth < 90) {
+                    const newWidth = Math.min(currentWidth + Math.random() * 10, 90);
+                    progressFill.style.width = newWidth + '%';
+                    
+                    // Update text
+                    const progressText = randomCard.querySelector('.progress-text');
+                    const remaining = Math.ceil((100 - newWidth) / 2);
+                    progressText.textContent = `${remaining} away from production!`;
+                }
+            }
+        }, 8000);
+
+        // Initialize first amount option as selected
+        document.querySelector('[data-amount="25"]').classList.add('selected');
+    </script>
+</body>
+</html>

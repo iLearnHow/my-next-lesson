@@ -1,0 +1,118 @@
+{
+  "lesson_metadata": {
+    "day": 2,
+    "title": "Habit Stacking for Productivity - Building Your Success Architecture",
+    "objective": "Master the fundamentals of habit stacking to create sustainable behavioral change, building the consistency and self-regulation skills that improve personal effectiveness and strengthen your ability to keep commitments to yourself and others.",
+    "category": "productivity",
+    "subject": "Personal Development",
+    "duration": "6 minutes",
+    "complexity": "Foundation",
+    "tone": "neutral"
+  },
+  "scripts": [
+    {
+      "script_number": 1,
+      "type": "intro_question1",
+      "voice_text": "{{WELCOME_MESSAGE}} Today we're exploring habit stacking - a technique that uses your existing routines as launching pads for new behaviors. Instead of fighting your brain's natural patterns, you work with them. Here's what I want to know: When you've tried to build new habits in the past, what approach have you typically used? Have you relied on motivation and willpower to push through, or have you focused on designing systems that make good behaviors automatic?",
+      "on_screen_text": "When building new habits, what's your usual approach?\n\nA) Rely on motivation and willpower\nB) Design systems that make behaviors automatic",
+      "timing_notes": "50-55 seconds, setting up the foundational choice"
+    },
+    {
+      "script_number": 2,
+      "type": "question1_option_a",
+      "voice_text": "I understand that approach - most people start with motivation and willpower. It feels natural because we're taught that success comes from pushing through obstacles. But here's what research shows: motivation fluctuates with your mood, energy, and circumstances. Willpower is like a muscle that gets tired throughout the day. By evening, you've depleted your willpower reserves on work decisions, traffic, and daily stress. That's why evening habits often fail. The more effective approach is designing systems that make good behaviors automatic and obvious, so the right choice becomes the natural choice.",
+      "on_screen_text": "Motivation & willpower are unreliable\n• Motivation fluctuates daily\n• Willpower depletes throughout the day\n• Systems make good behaviors automatic",
+      "timing_notes": "50-55 seconds, explaining why willpower fails"
+    },
+    {
+      "script_number": 3,
+      "type": "question1_option_b",
+      "voice_text": "Excellent thinking. You understand that sustainable habits aren't built on motivation or willpower - they're built on smart systems. You recognize that motivation is unreliable and willpower is a limited resource. Instead of fighting against human nature, you work with it. You design systems that make good behaviors automatic and obvious. This is exactly the foundation of habit stacking - using your existing routines as anchors for new behaviors, so they become as natural and automatic as brushing your teeth.",
+      "on_screen_text": "Smart systems thinking!\n• You work with human nature, not against it\n• Automatic behaviors are sustainable\n• Existing routines become powerful anchors",
+      "timing_notes": "50-55 seconds, reinforcing systems thinking"
+    },
+    {
+      "script_number": 4,
+      "type": "question1_no_response",
+      "voice_text": "Let me put this more simply. When you want to build a new habit, do you usually try to force yourself through willpower, or do you set up your environment to make the habit easier? Most people rely on willpower, but systems work better.",
+      "on_screen_text": "Building new habits:\n\nA) Force yourself with willpower\nB) Set up systems to make it easier",
+      "timing_notes": "30-35 seconds, simplified retry"
+    },
+    {
+      "script_number": 5,
+      "type": "question2_setup",
+      "voice_text": "Now let's get practical. Habit stacking works with a simple formula: 'After I do this existing habit, I will do this new habit.' The key is choosing the right anchor habit - something you already do consistently. For example: 'After I pour my morning coffee, I will write down three priorities for the day.' The existing habit triggers the new one automatically. This works because your brain loves efficiency and patterns. So here's my question: When choosing an anchor habit for stacking, what do you think works better - selecting a habit you do perfectly every single day, or choosing a habit you do frequently and automatically, even if you occasionally skip it?",
+      "on_screen_text": "What makes the best anchor habit for stacking?\n\nA) A habit you do perfectly every single day\nB) A habit you do frequently and automatically",
+      "timing_notes": "55-60 seconds, introducing the stacking formula and anchor selection"
+    },
+    {
+      "script_number": 6,
+      "type": "question2_option_a",
+      "voice_text": "That's a common assumption, but actually, you don't need perfect anchor habits - you need frequent and consistent ones. Perfect daily habits are rare, but frequent automatic behaviors are everywhere. The best anchors are habits you do most days without thinking, even if you occasionally skip them. Things like making coffee, checking your phone, sitting down at your desk, or getting in your car. These work because they're automatic behaviors that happen in specific contexts. The goal is to find reliable triggers that happen regularly in your routine, not habits that never fail.",
+      "on_screen_text": "Frequent beats perfect\n• Automatic behaviors are everywhere\n• Context-specific triggers work best\n• Reliability matters more than perfection",
+      "timing_notes": "55-60 seconds, explaining practical anchor selection"
+    },
+    {
+      "script_number": 7,
+      "type": "question2_option_b",
+      "voice_text": "Exactly right. You understand that the best anchor habits are frequent and automatic, not necessarily perfect. Consistency beats perfection. The most powerful anchors are those automatic behaviors you do regularly without thinking - like making coffee, checking your phone, or sitting down at your desk. You recognize that these frequent, mindless actions are actually goldmines for habit stacking because they happen naturally in specific contexts. You're looking for reliability, not perfection, which makes you much more likely to succeed with habit stacking.",
+      "on_screen_text": "Perfect understanding!\n• Frequent, automatic behaviors are goldmines\n• Context-specific triggers are powerful\n• Reliability beats perfection every time",
+      "timing_notes": "55-60 seconds, celebrating practical thinking"
+    },
+    {
+      "script_number": 8,
+      "type": "question2_no_response",
+      "voice_text": "Let me simplify this. For habit stacking, do you think it's better to use a habit you never miss, or a habit you do most days automatically? The automatic one works better, even if it's not perfect.",
+      "on_screen_text": "Best anchor for habit stacking:\n\nA) A habit you never miss\nB) A habit you do automatically most days",
+      "timing_notes": "30-35 seconds, simplified retry"
+    },
+    {
+      "script_number": 9,
+      "type": "question3_setup",
+      "voice_text": "Now for the deeper question. Every time you follow through on a small commitment to yourself, you're doing something powerful: you're proving to yourself that you're reliable. This builds what psychologists call 'self-efficacy' - your belief in your ability to execute behaviors necessary to produce specific performance attainments. When you stack habits successfully, you're not just learning new behaviors, you're becoming someone who keeps commitments. Here's what I'm curious about: Do you think successfully maintaining small personal habits has little impact on your ability to keep larger commitments to others, or do you think these self-regulation skills transfer and strengthen your reliability in relationships and work?",
+      "on_screen_text": "How do small personal habits affect larger commitments?\n\nA) Little impact on commitments to others\nB) Self-regulation skills transfer and strengthen reliability",
+      "timing_notes": "60-65 seconds, connecting personal to interpersonal reliability"
+    },
+    {
+      "script_number": 10,
+      "type": "question3_option_a",
+      "voice_text": "I understand why you might think that, but actually, the self-regulation skills you develop through small personal habits directly strengthen your ability to keep larger commitments to others. Think about it: when you practice following through on small promises to yourself, you're building the mental muscle of reliability. You're proving to yourself that you can be trusted to do what you say you'll do. This self-trust then transfers to your relationships and work. People who are consistent with personal habits tend to be more dependable friends, teammates, and partners because they've practiced the skill of following through, starting with themselves.",
+      "on_screen_text": "Self-regulation skills transfer\n• Small promises build the reliability muscle\n• Self-trust strengthens trust with others\n• Personal consistency creates interpersonal dependability",
+      "timing_notes": "55-60 seconds, explaining the transfer effect"
+    },
+    {
+      "script_number": 11,
+      "type": "question3_option_b",
+      "voice_text": "Absolutely. You understand that personal habits and interpersonal reliability are deeply connected. When you consistently follow through on small commitments to yourself, you're building the self-regulation skills that make you more dependable in all areas of life. You recognize that each small promise you keep to yourself strengthens your identity as someone who follows through. This isn't just about productivity - it's about becoming the kind of person others can count on. You see that personal development and relationship building start with the same foundation: proving to yourself that you're reliable.",
+      "on_screen_text": "Deep understanding!\n• Personal habits build interpersonal reliability\n• Self-regulation skills apply everywhere\n• Reliability becomes part of your identity",
+      "timing_notes": "55-60 seconds, celebrating the connection"
+    },
+    {
+      "script_number": 12,
+      "type": "question3_no_response",
+      "voice_text": "Simply put: Do small personal habits affect your ability to keep bigger promises to other people? Yes, they do. The skills transfer.",
+      "on_screen_text": "Small personal habits and bigger commitments:\n\nA) Don't really connect\nB) Skills transfer - personal reliability builds overall reliability",
+      "timing_notes": "25-30 seconds, simplified retry"
+    },
+    {
+      "script_number": 13,
+      "type": "daily_fortune",
+      "voice_text": "You just earned your daily fortune. You are someone who builds habits through smart design, not willpower. You understand that small, consistent actions create reliable patterns, and reliable patterns create trustworthy character. You're not just stacking habits - you're stacking evidence that you're someone who follows through. Tomorrow we're exploring 'Our Amazing Planet Earth' - and you'll discover how the same principles of consistent small changes that build habits also shape our incredible world. See you tomorrow!",
+      "on_screen_text": "YOUR DAILY FORTUNE\nYou build character through consistent action.\nSmall habits = Strong foundation for all commitments.",
+      "timing_notes": "65-70 seconds, reinforcing identity shift and teasing tomorrow"
+    }
+  ],
+  "production_notes": {
+    "voice_personality": "Neutral tone - clear, informative, respectful without being overly casual or formal",
+    "key_themes": "Systems over willpower, practical stacking techniques, self-regulation transfer, identity building",
+    "difficulty_progression": "Why willpower fails → How stacking works → Why it builds character",
+    "real_world_applications": "Personal productivity, habit formation, self-regulation, relationship reliability",
+    "user_state_logic": "Uses {{WELCOME_MESSAGE}} placeholder for dynamic first-time vs returning user detection",
+    "conversation_flow": {
+      "question_format": "Open-ended questions with two clear paths",
+      "response_handling": "Acknowledges user choice, provides insight, builds toward next question",
+      "no_response_protocol": "Simplified retry, then autoplay to next question",
+      "tone_consistency": "Maintains neutral, educational tone throughout"
+    }
+  }
+}
