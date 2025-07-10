@@ -1,94 +1,77 @@
 import Head from 'next/head'
+import { useState, useEffect } from 'react'
+import { UniversalLessonPlayer } from '../components/UniversalLessonPlayer'
 
 export default function Home() {
+  const [lesson, setLesson] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    // Load the negotiation skills DNA lesson
+    const loadLesson = async () => {
+      try {
+        setLoading(true);
+        
+        // Import the DNA file directly
+        const response = await fetch('/negotiation_skills_dna.json');
+        if (!response.ok) {
+          throw new Error('Failed to load lesson DNA');
+        }
+        
+        const lessonDNA = await response.json();
+        setLesson(lessonDNA);
+        
+      } catch (err) {
+        console.error('Error loading lesson:', err);
+        setError('Failed to load lesson. Please try refreshing the page.');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadLesson();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-blue-600 mx-auto mb-4"></div>
+          <h2 className="text-2xl font-bold text-gray-900 mb-2">Loading Daily Lesson</h2>
+          <p className="text-gray-600">Preparing your negotiation skills lesson...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center">
+        <div className="text-center">
+          <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+            <strong>Error:</strong> {error}
+          </div>
+          <button 
+            onClick={() => window.location.reload()}
+            className="bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+          >
+            Try Again
+          </button>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+    <div>
       <Head>
-        <title>DailyLesson Avatar Foundry</title>
-        <meta name="description" content="Self-hosted pipeline for generating avatar videos for DailyLesson.org" />
+        <title>DailyLesson - Negotiation Skills</title>
+        <meta name="description" content="Learn negotiation skills through interactive daily lessons" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="container mx-auto px-4 py-16">
-        <div className="text-center">
-          <h1 className="text-6xl font-bold text-gray-900 mb-8">
-            🎬 DailyLesson Avatar Foundry
-          </h1>
-          
-          <p className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto">
-            Self-hosted, open-source pipeline for generating high-quality avatar videos 
-            for DailyLesson.org. Powered by SadTalker, Piper TTS, and Rhubarb Lip Sync.
-          </p>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
-            <div className="bg-white rounded-lg shadow-lg p-6">
-              <h3 className="text-2xl font-semibold mb-4">🎭 Avatar Generation</h3>
-              <p className="text-gray-600">
-                Create talking avatars from source images and audio using advanced AI models.
-              </p>
-            </div>
-
-            <div className="bg-white rounded-lg shadow-lg p-6">
-              <h3 className="text-2xl font-semibold mb-4">🔊 Text-to-Speech</h3>
-              <p className="text-gray-600">
-                High-quality voice synthesis with Piper TTS and ElevenLabs integration.
-              </p>
-            </div>
-
-            <div className="bg-white rounded-lg shadow-lg p-6">
-              <h3 className="text-2xl font-semibold mb-4">👄 Lip Sync</h3>
-              <p className="text-gray-600">
-                Automatic viseme generation with Rhubarb Lip Sync for realistic mouth movements.
-              </p>
-            </div>
-          </div>
-
-          <div className="mt-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8">Project Status</h2>
-            <div className="bg-white rounded-lg shadow-lg p-8 max-w-4xl mx-auto">
-              <div className="grid md:grid-cols-2 gap-8">
-                <div>
-                  <h3 className="text-xl font-semibold mb-4">✅ Completed</h3>
-                  <ul className="text-gray-600 space-y-2">
-                    <li>• Docker containerization</li>
-                    <li>• SadTalker integration</li>
-                    <li>• Audio processing pipeline</li>
-                    <li>• Quality presets configuration</li>
-                    <li>• Automated testing framework</li>
-                  </ul>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-4">🚧 In Progress</h3>
-                  <ul className="text-gray-600 space-y-2">
-                    <li>• Network optimization</li>
-                    <li>• Reference video integration</li>
-                    <li>• Enhanced movement quality</li>
-                    <li>• Production deployment</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8">Technology Stack</h2>
-            <div className="flex flex-wrap justify-center gap-4">
-              <span className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full">Next.js</span>
-              <span className="bg-green-100 text-green-800 px-4 py-2 rounded-full">SadTalker</span>
-              <span className="bg-purple-100 text-purple-800 px-4 py-2 rounded-full">Piper TTS</span>
-              <span className="bg-orange-100 text-orange-800 px-4 py-2 rounded-full">Rhubarb Lip Sync</span>
-              <span className="bg-red-100 text-red-800 px-4 py-2 rounded-full">Docker</span>
-              <span className="bg-indigo-100 text-indigo-800 px-4 py-2 rounded-full">Python</span>
-            </div>
-          </div>
-        </div>
-      </main>
-
-      <footer className="bg-gray-800 text-white py-8 mt-16">
-        <div className="container mx-auto px-4 text-center">
-          <p>&copy; 2024 DailyLesson.org Avatar Foundry. Open source project.</p>
-        </div>
-      </footer>
+      <UniversalLessonPlayer lesson={lesson} />
     </div>
   )
 } 
