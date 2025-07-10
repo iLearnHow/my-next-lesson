@@ -211,6 +211,9 @@ wheels/
 *.egg
 MANIFEST
 
+# Python development requirements
+requirements-dev.txt
+
 # PyInstaller
 *.manifest
 *.spec
