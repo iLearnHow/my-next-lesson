@@ -12,19 +12,23 @@ export default function Home() {
     const loadLesson = async () => {
       try {
         setLoading(true);
+        console.log('🔍 Loading negotiation skills DNA lesson...');
         
         // Import the DNA file directly
         const response = await fetch('/negotiation_skills_dna.json');
+        console.log('📡 Fetch response status:', response.status);
+        
         if (!response.ok) {
-          throw new Error('Failed to load lesson DNA');
+          throw new Error(`Failed to load lesson DNA: ${response.status} ${response.statusText}`);
         }
         
         const lessonDNA = await response.json();
+        console.log('✅ Lesson DNA loaded successfully:', lessonDNA.lesson_id);
         setLesson(lessonDNA);
         
       } catch (err) {
-        console.error('Error loading lesson:', err);
-        setError('Failed to load lesson. Please try refreshing the page.');
+        console.error('❌ Error loading lesson:', err);
+        setError(`Failed to load lesson: ${err.message}. Please try refreshing the page.`);
       } finally {
         setLoading(false);
       }
@@ -49,7 +53,7 @@ export default function Home() {
     return (
       <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center">
         <div className="text-center">
-          <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+          <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4 max-w-md">
             <strong>Error:</strong> {error}
           </div>
           <button 
