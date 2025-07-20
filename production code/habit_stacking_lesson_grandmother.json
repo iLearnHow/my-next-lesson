@@ -1,0 +1,118 @@
+{
+  "lesson_metadata": {
+    "day": 2,
+    "title": "Habit Stacking for Productivity - Building Your Success Architecture",
+    "objective": "Master the fundamentals of habit stacking to create sustainable behavioral change, building the consistency and self-regulation skills that improve personal effectiveness and strengthen your ability to keep commitments to yourself and others.",
+    "category": "productivity",
+    "subject": "Personal Development",
+    "duration": "6 minutes",
+    "complexity": "Foundation",
+    "tone": "grandmother"
+  },
+  "scripts": [
+    {
+      "script_number": 1,
+      "type": "intro_question1",
+      "voice_text": "{{WELCOME_MESSAGE}} Oh honey, come sit with me for a minute. Today we're talking about something I've learned over many years - how to build good habits that actually stick. You know, I've watched so many dear people struggle with this, trying to force themselves to change through sheer determination. But let me share something with you - the wisest approach is much gentler than that. It's called habit stacking, and it's like planting a garden. You don't fight the soil, you work with it. Now tell me, sweetheart, when you've tried to build new habits before, what's felt more natural to you? Have you tried to push yourself through with willpower and motivation, or have you found ways to make good choices feel easy and automatic?",
+      "on_screen_text": "How do you usually approach building habits?\n\nA) Push through with willpower and motivation\nB) Make good choices feel easy and automatic",
+      "timing_notes": "50-55 seconds, warm and nurturing setup with gardening metaphor"
+    },
+    {
+      "script_number": 2,
+      "type": "question1_option_a",
+      "voice_text": "Oh dear, I understand completely. That's what most people try first, and bless your heart for trying so hard. But let me tell you what I've learned from watching people succeed and struggle over the years. Willpower is like trying to hold your breath - you can do it for a while, but eventually you have to let go. And motivation? Well, it comes and goes like the weather, doesn't it? Some days you feel ready to conquer the world, other days you can barely get out of bed. The secret, my dear, is to be kinder to yourself. Instead of fighting your nature, work with it. Set things up so the good choice is the easy choice. That's real wisdom.",
+      "on_screen_text": "Be gentle with yourself, dear\n• Willpower is like holding your breath\n• Motivation comes and goes like weather\n• Work with your nature, not against it",
+      "timing_notes": "50-55 seconds, compassionate wisdom with gentle metaphors"
+    },
+    {
+      "script_number": 3,
+      "type": "question1_option_b",
+      "voice_text": "Oh, what a wise soul you are! You've already discovered what takes some people years to learn. You understand that lasting change doesn't come from forcing yourself, but from being thoughtful and gentle about how you approach it. You've learned to work with your natural rhythms instead of fighting them. This tells me you have real wisdom about human nature. You know that the most powerful changes happen when we make them feel natural and inevitable, not forced and difficult. That's exactly the spirit of habit stacking - using the patterns you already have to gently guide yourself toward the person you want to become.",
+      "on_screen_text": "Such wisdom, dear one\n• You work with natural rhythms\n• Gentle guidance creates lasting change\n• True wisdom understands human nature",
+      "timing_notes": "50-55 seconds, warm validation of their insight"
+    },
+    {
+      "script_number": 4,
+      "type": "question1_no_response",
+      "voice_text": "That's alright, sweetie. Let me put it simply. When you want to build a habit, do you usually try to force yourself, or do you find gentle ways to make it easier? The gentle way works much better.",
+      "on_screen_text": "Building habits:\n\nA) Force yourself to do it\nB) Find gentle ways to make it easier",
+      "timing_notes": "30-35 seconds, patient and understanding"
+    },
+    {
+      "script_number": 5,
+      "type": "question2_setup",
+      "voice_text": "Now let me share the beautiful simplicity of how this works. Habit stacking is like threading beads on a string - you connect a new habit to something you already do naturally. The pattern is: 'After I do this thing I always do, I will do this new thing I want to do.' For instance, 'After I pour my morning tea, I will take a moment to write down what I'm grateful for.' The old habit becomes like a gentle reminder for the new one. Your mind loves this because it feels natural, not forced. Now, here's something I want you to think about carefully. When choosing which habit to attach your new one to, what do you think serves you better - picking a habit you do absolutely perfectly every single day, or choosing one that you do regularly and naturally, even if you're human and sometimes forget?",
+      "on_screen_text": "Best habit to build upon?\n\nA) A habit you do absolutely perfectly every day\nB) A habit you do regularly and naturally (even if sometimes forgotten)",
+      "timing_notes": "55-60 seconds, gentle instruction with threading metaphor"
+    },
+    {
+      "script_number": 6,
+      "type": "question2_option_a",
+      "voice_text": "Oh honey, I can see your heart is in the right place, wanting to be perfect. But let me share something I've learned from years of living - perfection is a lovely idea, but it's not very practical for real life. You don't need perfect habits to build upon, you need reliable ones. The best foundation habits are the ones you do naturally, without thinking - making your morning coffee, sitting down at your desk, getting into your car. These happen regularly in your daily rhythm, even if you're beautifully human and occasionally forget. Think of it like this: would you rather build your house on ground that's solid most of the time, or wait forever for ground that never shifts even a little?",
+      "on_screen_text": "Gentle wisdom about perfection\n• Reliable is better than perfect\n• Natural habits make the best foundation\n• Solid most of the time beats perfect never",
+      "timing_notes": "55-60 seconds, loving guidance away from perfectionism"
+    },
+    {
+      "script_number": 7,
+      "type": "question2_option_b",
+      "voice_text": "Oh my dear, you have such good instincts! You understand that regular and natural habits are much more valuable than perfect ones. You've learned that those everyday, automatic things you do - like making coffee, checking your messages, or settling into your favorite chair - these are treasures for building new habits. You recognize that being human and occasionally forgetting doesn't make a habit less valuable. What matters is that these behaviors happen naturally in your daily flow. You're not looking for perfection, you're looking for gentle reliability. This wisdom will serve you so well in building lasting changes in your life.",
+      "on_screen_text": "Beautiful understanding, dear\n• Regular and natural habits are treasures\n• Automatic behaviors are perfect anchors\n• Gentle reliability beats rigid perfection",
+      "timing_notes": "55-60 seconds, warm affirmation of their wisdom"
+    },
+    {
+      "script_number": 8,
+      "type": "question2_no_response",
+      "voice_text": "No worries at all, dear. Simply put - should you attach new habits to ones you never miss, or ones you do naturally most days? The natural ones work better because they flow with your life.",
+      "on_screen_text": "Attach new habits to:\n\nA) Habits you never miss\nB) Habits that flow naturally with your life",
+      "timing_notes": "30-35 seconds, patient clarification"
+    },
+    {
+      "script_number": 9,
+      "type": "question3_setup",
+      "voice_text": "Now let me tell you about something beautiful that happens when you keep small promises to yourself. Every time you follow through on a tiny commitment, you're quietly telling yourself 'I am someone who can be trusted.' This builds something precious - a deep belief in your own reliability. When you know in your heart that you do what you say you'll do, even in small things, it changes how you show up everywhere else in your life. Scientists have a fancy name for this - 'self-efficacy' - but I just call it knowing your own worth. Here's what I'm curious about, sweetheart. Do you think that being consistent with small personal habits only affects you personally, or do you believe this inner strength and reliability naturally flows into how dependable you are with the people you care about?",
+      "on_screen_text": "Small personal habits and relationships:\n\nA) Only affects me personally\nB) Inner strength flows into reliability with others",
+      "timing_notes": "60-65 seconds, gentle exploration of character building"
+    },
+    {
+      "script_number": 10,
+      "type": "question3_option_a",
+      "voice_text": "Oh sweetheart, I understand why you might think that, but let me share what I've observed over many years of watching people grow. When you practice keeping small promises to yourself, you're actually strengthening something much deeper - your character. Think of it like tending a garden. When you water one section faithfully, the whole garden benefits. Every small commitment you honor is like doing gentle exercises for your reliability. When you prove to yourself that you can be trusted with little things, that trust doesn't stay locked away. It naturally flows into your relationships, your work, your friendships. People start to sense that you're someone they can count on, because you've learned to count on yourself.",
+      "on_screen_text": "Character grows like a garden\n• Small promises strengthen your whole being\n• Self-trust naturally flows to others\n• People sense your reliability",
+      "timing_notes": "55-60 seconds, gentle teaching with garden metaphor"
+    },
+    {
+      "script_number": 11,
+      "type": "question3_option_b",
+      "voice_text": "Oh my dear, you have such beautiful insight! You understand something that many people take years to discover. When you honor small commitments to yourself, you're not just building habits - you're building character. You recognize that the strength and reliability you develop within yourself naturally radiates outward to touch everyone in your life. You know that when you become someone who can trust yourself with small things, others begin to trust you with bigger things. This isn't just about productivity, precious one - it's about becoming the kind of person who brings stability and dependability to every relationship. What a gift that is, both to yourself and to everyone who loves you.",
+      "on_screen_text": "Such beautiful insight, precious one\n• Character radiates from within\n• Self-trust creates trust with others\n• You become a gift to your relationships",
+      "timing_notes": "55-60 seconds, deep appreciation for their understanding"
+    },
+    {
+      "script_number": 12,
+      "type": "question3_no_response",
+      "voice_text": "Let me put it simply, dear. When you keep small promises to yourself, does it only help you, or does it make you more reliable with others too? It definitely makes you more reliable everywhere.",
+      "on_screen_text": "Keeping small promises to yourself:\n\nA) Only helps me\nB) Makes me reliable everywhere",
+      "timing_notes": "25-30 seconds, gentle simplification"
+    },
+    {
+      "script_number": 13,
+      "type": "daily_fortune",
+      "voice_text": "You've just earned your daily fortune, my dear. You are someone who understands that real change happens gently, not forcefully. You know that small, consistent actions are like drops of water that eventually carve the grandest canyons. You're not just building habits - you're building the kind of character that makes you a blessing to yourself and everyone around you. Tomorrow we're going to explore 'Our Amazing Planet Earth' together, and you'll see how the same gentle, persistent forces that build your beautiful character also shaped our magnificent world. I'm so proud of the wisdom you're growing. See you tomorrow, dear one.",
+      "on_screen_text": "YOUR DAILY FORTUNE\nGentle persistence shapes both character and canyons.\nYou are becoming a blessing to all around you.",
+      "timing_notes": "65-70 seconds, loving affirmation and gentle transition"
+    }
+  ],
+  "production_notes": {
+    "voice_personality": "Grandmother tone - warm, wise, nurturing, uses gentle metaphors, affirms worth and wisdom, patient and understanding",
+    "key_themes": "Gentle guidance over force, natural wisdom, character building, inner strength radiating outward",
+    "difficulty_progression": "Self-compassion → Natural patterns → Character development",
+    "real_world_applications": "Personal growth, relationship building, self-trust, character development",
+    "user_state_logic": "Uses {{WELCOME_MESSAGE}} placeholder for dynamic first-time vs returning user detection",
+    "conversation_flow": {
+      "question_format": "Thoughtful, caring questions that honor user's experience",
+      "response_handling": "Validates feelings, shares gentle wisdom, affirms their insights",
+      "no_response_protocol": "Patient, understanding simplification without pressure",
+      "tone_consistency": "Maintains warm, nurturing wisdom throughout - like talking with a beloved grandparent"
+    }
+  }
+}
