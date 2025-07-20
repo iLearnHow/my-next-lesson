@@ -1,0 +1,118 @@
+{
+  "lesson_metadata": {
+    "day": 2,
+    "title": "Habit Stacking for Productivity - Building Your Success Architecture",
+    "objective": "Master the fundamentals of habit stacking to create sustainable behavioral change, building the consistency and self-regulation skills that improve personal effectiveness and strengthen your ability to keep commitments to yourself and others.",
+    "category": "productivity",
+    "subject": "Personal Development",
+    "duration": "6 minutes",
+    "complexity": "Foundation",
+    "tone": "fun"
+  },
+  "scripts": [
+    {
+      "script_number": 1,
+      "type": "intro_question1",
+      "voice_text": "{{WELCOME_MESSAGE}} Alright, habit stackers! Today we're diving into one of my absolute favorite productivity tricks - habit stacking. Think of it like building with LEGOs for your life. Instead of fighting your brain, we're going to hack it! You know how you always remember to check your phone? We're going to use those automatic behaviors as springboards for awesome new habits. So tell me - when you've tried to build habits before, what's been your go-to strategy? Do you usually pump yourself up with motivation and try to willpower your way through, or do you get sneaky and design clever systems that make good stuff happen automatically?",
+      "on_screen_text": "Your usual habit-building strategy?\n\nA) Pump up motivation & willpower through it!\nB) Get sneaky with clever automatic systems",
+      "timing_notes": "50-55 seconds, energetic and playful setup"
+    },
+    {
+      "script_number": 2,
+      "type": "question1_option_a",
+      "voice_text": "Oh, the classic motivation-and-muscle approach! I totally get it - it feels so heroic, right? Like you're going to willpower your way to victory! But here's the plot twist: your brain is actually working against you. Motivation is like that friend who's super enthusiastic about plans but flakes out when it's time to actually do them. And willpower? It's like your phone battery - starts strong in the morning but dies by evening when you need it most! That's why your evening workout plans get murdered by Netflix. The secret sauce is designing systems so sneaky that good habits just... happen. No heroics required!",
+      "on_screen_text": "Plot twist! 🎬\n• Motivation = That flaky friend\n• Willpower = Phone battery (dies when you need it)\n• Systems = The real MVP",
+      "timing_notes": "50-55 seconds, playful explanation with relatable analogies"
+    },
+    {
+      "script_number": 3,
+      "type": "question1_option_b",
+      "voice_text": "YES! You're already thinking like a habit hacker! You've figured out that the secret isn't being a productivity superhero - it's being a systems genius. While everyone else is white-knuckling their way through willpower, you're over here playing 4D chess with your brain. You've discovered that automatic behaviors are like cheat codes for life. Your brain is already programmed with dozens of routines, and you're smart enough to hijack those patterns for your own success. This is exactly what habit stacking is all about - being cleverly lazy instead of heroically exhausted!",
+      "on_screen_text": "HABIT HACKER DETECTED! 🧠💡\n• You play 4D chess with your brain\n• Automatic behaviors = Life cheat codes\n• Cleverly lazy > Heroically exhausted",
+      "timing_notes": "50-55 seconds, celebrating their smart approach"
+    },
+    {
+      "script_number": 4,
+      "type": "question1_no_response",
+      "voice_text": "No worries! Let me make this super simple. When building habits, are you team 'I'll force myself to do it!' or team 'I'll trick my brain into making it easy'? Team trick-your-brain wins every time!",
+      "on_screen_text": "Team choice:\n\nA) Force myself to do it! 💪\nB) Trick my brain into making it easy! 🧠✨",
+      "timing_notes": "30-35 seconds, fun and simplified"
+    },
+    {
+      "script_number": 5,
+      "type": "question2_setup",
+      "voice_text": "Okay, time for the magic formula! Habit stacking is stupidly simple: 'After I do this thing I already do, I will do this new thing I want to do.' It's like creating a domino effect in your routine. For example: 'After I pour my coffee - BOOM - I write down three priorities.' Your existing habit becomes the trigger that launches your new habit into orbit! Your brain loves this because it's efficient - no extra thinking required. Now here's the million-dollar question: When you're picking your anchor habit, what do you think works better - going for a habit you nail perfectly every single day like some kind of robot, or choosing a habit that you do super frequently and automatically, even if you're human and occasionally forget?",
+      "on_screen_text": "Best anchor habit for stacking?\n\nA) Perfect robot-level daily habit\nB) Frequent automatic habit (even if occasionally human)",
+      "timing_notes": "55-60 seconds, enthusiastic explanation with concrete examples"
+    },
+    {
+      "script_number": 6,
+      "type": "question2_option_a",
+      "voice_text": "Ah, the perfectionist trap! I love your ambition, but here's the thing - perfect daily habits are like unicorns. Beautiful in theory, but good luck finding one! The real gold is in those frequent, automatic behaviors you do without thinking. Making coffee, checking your phone, sitting at your desk, getting in your car - these are your habit-stacking goldmines! They happen in specific places and times, they're already wired into your brain, and best of all, they don't require you to be a productivity robot. You're looking for reliable, not perfect. Think of it like this: would you rather build on rock that's there 90% of the time, or wait for the perfect rock that shows up once in a blue moon?",
+      "on_screen_text": "Perfect habits = Unicorns! 🦄\n• Automatic behaviors are goldmines\n• Reliable beats perfect every time\n• 90% solid rock > Perfect blue moon rock",
+      "timing_notes": "55-60 seconds, playful reality check"
+    },
+    {
+      "script_number": 7,
+      "type": "question2_option_b",
+      "voice_text": "BOOM! You nailed it! You understand that frequent and automatic beats perfect and stressful every single time. You're not looking for habit unicorns - you're mining the goldmine of behaviors you already do on autopilot. Coffee making, phone checking, desk sitting - these seemingly boring actions are actually your secret weapons! They happen naturally, they're tied to specific contexts, and they don't require you to be some kind of productivity superhero. You've cracked the code: reliability is way more powerful than perfection. You're going to absolutely crush habit stacking with this mindset!",
+      "on_screen_text": "NAILED IT! 🎯\n• Frequent & automatic = Secret weapons\n• Boring behaviors = Goldmines\n• Reliability > Perfection always!",
+      "timing_notes": "55-60 seconds, high-energy celebration"
+    },
+    {
+      "script_number": 8,
+      "type": "question2_no_response",
+      "voice_text": "Quick choice time! For habit stacking, better to use a habit you literally never miss, or one you do automatically most days? Spoiler alert: the automatic one wins because your brain loves efficiency over perfection!",
+      "on_screen_text": "Habit stacking anchor:\n\nA) Never-miss habit\nB) Automatic-most-days habit",
+      "timing_notes": "30-35 seconds, quick and punchy"
+    },
+    {
+      "script_number": 9,
+      "type": "question3_setup",
+      "voice_text": "Alright, time for the mind-blowing part! Every tiny habit you stick to is secretly building your 'I'm someone who follows through' superpower. Think about it - when you keep small promises to yourself, you're literally rewiring your brain to see yourself as reliable. Psychologists call this 'self-efficacy' but I call it your inner follow-through muscle getting swole! You're not just building habits, you're building your character like a boss. Here's what I'm dying to know: Do you think crushing those small personal habits is just about you and has zero impact on your relationships, or do you think this follow-through superpower actually makes you more reliable with other people too?",
+      "on_screen_text": "Small personal habits and relationships:\n\nA) Just about me - zero impact on relationships\nB) Follow-through superpower makes me reliable with others",
+      "timing_notes": "60-65 seconds, building excitement about the connection"
+    },
+    {
+      "script_number": 10,
+      "type": "question3_option_a",
+      "voice_text": "Ooh, I can see why you'd think that, but plot twist number two! Your personal habit game is secretly training you to be a reliability superhero in ALL areas of life. Every small promise you keep to yourself is like doing bicep curls for your follow-through muscle. When you prove to yourself that you can be trusted with tiny commitments, your brain starts believing 'Hey, I'm someone who does what they say!' That confidence and skill set doesn't just stay locked in your personal life - it leaks out everywhere! Your friends, your teammates, your family all benefit from your habit-stacking training. You're basically becoming the person everyone wants on their team without even realizing it!",
+      "on_screen_text": "Plot twist! 🌟\n• Personal habits = Follow-through muscle training\n• Self-trust builds universal reliability\n• You become everyone's dream teammate!",
+      "timing_notes": "55-60 seconds, enthusiastic revelation"
+    },
+    {
+      "script_number": 11,
+      "type": "question3_option_b",
+      "voice_text": "OH MY GOSH, YES! You totally get it! You've unlocked the secret connection that most people miss completely. Your personal habit game isn't selfish - it's like going to the gym for your reliability muscle! Every small commitment you keep to yourself is making you more trustworthy everywhere else. You understand that when you prove to yourself 'I do what I say I'll do,' that superpower doesn't just stay locked up in your personal life. It radiates out to your friendships, your work, your relationships. You're not just building habits - you're building the kind of character that makes people think 'I can count on them.' That's seriously powerful stuff!",
+      "on_screen_text": "YOU GET IT! 🔥\n• Personal habits = Reliability muscle gym\n• Self-trust radiates everywhere\n• Building 'count-on-me' character!",
+      "timing_notes": "55-60 seconds, maximum celebration"
+    },
+    {
+      "script_number": 12,
+      "type": "question3_no_response",
+      "voice_text": "Quick one: Do small personal habits only affect you, or do they make you more reliable with other people too? Spoiler: they totally make you more reliable everywhere!",
+      "on_screen_text": "Small habits impact:\n\nA) Just me\nB) Makes me reliable everywhere",
+      "timing_notes": "25-30 seconds, quick and clear"
+    },
+    {
+      "script_number": 13,
+      "type": "daily_fortune",
+      "voice_text": "You just earned your daily fortune! You are someone who hacks their brain instead of fighting it. You build habits like a strategic genius, not a willpower warrior. You understand that tiny, consistent actions don't just change your routine - they change WHO YOU ARE. You're not just stacking habits, you're stacking evidence that you're absolutely someone others can count on. Tomorrow we're blasting off to explore 'Our Amazing Planet Earth' - and you'll discover how the same small, consistent forces that build your habits also sculpted our incredible world. This is going to be epic - see you tomorrow!",
+      "on_screen_text": "YOUR DAILY FORTUNE\nYou're a strategic habit genius! 🧠⚡\nTiny actions = Massive character transformation.",
+      "timing_notes": "65-70 seconds, high-energy wrap-up"
+    }
+  ],
+  "production_notes": {
+    "voice_personality": "Fun tone - energetic, playful, uses analogies and pop culture references, celebrates user insights enthusiastically",
+    "key_themes": "Brain hacking over willpower, systems as cheat codes, character building through small wins",
+    "difficulty_progression": "Motivation myths → Stacking mechanics → Character transformation",
+    "real_world_applications": "Personal productivity, habit formation, self-regulation, relationship reliability",
+    "user_state_logic": "Uses {{WELCOME_MESSAGE}} placeholder for dynamic first-time vs returning user detection",
+    "conversation_flow": {
+      "question_format": "Engaging scenarios with playful options",
+      "response_handling": "High energy acknowledgment, fun analogies, builds excitement",
+      "no_response_protocol": "Quick, punchy retries with spoiler alerts",
+      "tone_consistency": "Maintains enthusiastic, encouraging energy throughout"
+    }
+  }
+}

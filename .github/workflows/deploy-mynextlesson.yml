@@ -1,0 +1,134 @@
+name: Deploy MyNextLesson to Cloudflare
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm test
+
+      - name: Build application
+        run: npm run build
+
+  deploy-staging:
+    needs: test
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install Wrangler
+        run: npm install -g wrangler
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build application
+        run: npm run build
+
+      - name: Deploy TTS Worker to Staging
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          wrangler deploy --env staging --config wrangler-mynextlesson.toml
+
+      - name: Deploy Main Site to Staging
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          wrangler pages deploy out --project-name mynextlesson-staging --env staging
+
+  deploy-production:
+    needs: test
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    environment: production
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install Wrangler
+        run: npm install -g wrangler
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build application
+        run: npm run build
+
+      - name: Pre-generate lessons
+        run: npm run pre-generate-lessons
+
+      - name: Check lesson coverage
+        run: |
+          COVERAGE=$(curl -s http://localhost:8787/api/monitor/lesson-coverage | jq -r '.coverage' | tr -d '%')
+          echo "Lesson coverage: $COVERAGE%"
+          if (( $(echo "$COVERAGE < 99" | bc -l) )); then
+            echo "::error ::Lesson coverage is below 99%. Failing build."
+            exit 1
+          fi
+          echo "Lesson coverage is sufficient."
+
+      - name: Deploy TTS Worker to Production
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          wrangler deploy --env tts --config wrangler-mynextlesson.toml
+
+      - name: Deploy Main Site to Production
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          wrangler pages deploy out --project-name mynextlesson-prod --env production
+
+      - name: Deploy API to Production
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          wrangler deploy --env production --config wrangler-mynextlesson.toml
+
+      - name: Run smoke tests
+        run: |
+          echo "Running smoke tests..."
+          curl -f https://mynextlesson.com/api/health || exit 1
+          curl -f https://tts.mynextlesson.com/status || exit 1
+          echo "Smoke tests passed!"
+
+      - name: Notify deployment success
+        run: |
+          echo "🎉 MyNextLesson successfully deployed to production!"
+          echo "🌐 Main site: https://mynextlesson.com"
+          echo "🎤 TTS service: https://tts.mynextlesson.com" 

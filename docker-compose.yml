@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  piper:
+    image: rhasspy/piper:latest
+    container_name: piper_tts
+    # Start with a basic setup that lists available voices
+    command: ["python3", "-m", "piper_train.vits.export_onnx", "--help"]
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./piper_models:/models
+    # Ensures the correct image architecture is pulled for your M2 Mac
+    platform: linux/arm64
+
+  foundry:
+    build: .
+    container_name: foundry_service
+    working_dir: /app
+    volumes:
+      - .:/app
+    environment:
+      - REPLICATE_API_TOKEN=${REPLICATE_API_TOKEN}
+    tty: true # Keeps the container running
+    platform: linux/arm64
+
+  portainer:
+    image: portainer/portainer-ce:latest
+    container_name: portainer
+    command: -H unix:///var/run/docker.sock
+    ports:
+      - "9000:9000"
+      - "8000:8000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
+    restart: always
+
+volumes:
+  portainer_data: 
