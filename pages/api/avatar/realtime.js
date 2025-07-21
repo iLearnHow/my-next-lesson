@@ -48,7 +48,7 @@ async function startRealTimeLesson(req, res) {
     
     // Adapt lesson for user
     const ageEngine = new UniversalAgeEngine();
-    const adaptedContent = await ageEngine.adaptLesson(lessonDNA, age || 25);
+    const adaptedContent = await ageEngine.adaptLessonContent(lessonDNA, age || 25);
     
     // Create session state
     const sessionState = {
