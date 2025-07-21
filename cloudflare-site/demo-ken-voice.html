@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ken Voice Demo - MyNextLesson.com</title>
+    <meta name="description" content="Experience Ken's AI voice powered by Coqui TTS technology. Test our advanced voice cloning system.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8fafc;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        /* Demo Hero */
+        .demo-hero {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        /* System Status */
+        .system-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: white;
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .status-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+            background: #4CAF50;
+        }
+
+        .status-text {
+            font-weight: 600;
+            color: #333;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        /* Demo Interface */
+        .demo-interface {
+            padding: 4rem 2rem;
+            background: white;
+        }
+
+        .interface-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .input-section {
+            margin-bottom: 3rem;
+        }
+
+        .input-section h2 {
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .text-input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 1rem;
+            resize: vertical;
+            transition: border-color 0.3s;
+        }
+
+        .text-input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .char-count {
+            text-align: right;
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .samples-section {
+            margin-bottom: 3rem;
+        }
+
+        .samples-section h3 {
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .sample-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .sample-btn {
+            background: #f0f4f8;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .sample-btn:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .generate-section {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .generate-btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 1.2rem 3rem;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .generate-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+        }
+
+        .generate-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .spinner {
+            width: 16px;
+            height: 16px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-top: 2px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .audio-section {
+            background: #f0f4f8;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 3rem;
+            display: none;
+        }
+
+        .audio-section.show {
+            display: block;
+        }
+
+        .audio-section h3 {
+            color: #4CAF50;
+            margin-bottom: 1.5rem;
+        }
+
+        .audio-player {
+            width: 100%;
+            max-width: 400px;
+            margin-bottom: 1rem;
+        }
+
+        .error-section {
+            background: #fee;
+            color: #c53030;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            display: none;
+        }
+
+        .error-section.show {
+            display: block;
+        }
+
+        /* Footer */
+        .footer {
+            background: #2d3748;
+            color: white;
+            padding: 3rem 2rem 1rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: #cbd5e0;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 2rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid #4a5568;
+            text-align: center;
+            color: #a0aec0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .sample-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <a href="/" class="logo">
+                <span class="logo-icon">🎓</span>
+                MyNextLesson
+            </a>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/demo-lesson">Today's Lesson</a>
+                <a href="/voice-test.html">Voice Test</a>
+                <a href="/about">About</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="demo-hero">
+            <div class="hero-content">
+                <h1>Ken's Voice Demo</h1>
+                <p>Experience our advanced Coqui TTS voice cloning technology</p>
+                
+                <!-- System Status -->
+                <div class="system-status">
+                    <div class="status-indicator">
+                        <span class="status-dot"></span>
+                        <span class="status-text" id="systemStatus">
+                            Coqui TTS Server Ready
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Demo Interface -->
+        <section class="demo-interface">
+            <div class="interface-container">
+                
+                <!-- Text Input -->
+                <div class="input-section">
+                    <h2>Enter Text for Ken to Speak</h2>
+                    <textarea
+                        id="textInput"
+                        placeholder="Type what you want Ken to say..."
+                        class="text-input"
+                        rows="4"
+                        maxlength="500"
+                    >Hello, this is Ken. Welcome to MyNextLesson where we make learning extraordinary!</textarea>
+                    <div class="char-count" id="charCount">82/500</div>
+                </div>
+
+                <!-- Sample Texts -->
+                <div class="samples-section">
+                    <h3>Try These Sample Texts</h3>
+                    <div class="sample-buttons">
+                        <button class="sample-btn" onclick="setSample(0)">Sample 1</button>
+                        <button class="sample-btn" onclick="setSample(1)">Sample 2</button>
+                        <button class="sample-btn" onclick="setSample(2)">Sample 3</button>
+                        <button class="sample-btn" onclick="setSample(3)">Sample 4</button>
+                        <button class="sample-btn" onclick="setSample(4)">Sample 5</button>
+                    </div>
+                </div>
+
+                <!-- Generate Button -->
+                <div class="generate-section">
+                    <button id="generateBtn" onclick="generateKenVoice()" class="generate-btn">
+                        🎙️ Generate Ken's Voice
+                    </button>
+                </div>
+
+                <!-- Error Display -->
+                <div id="errorSection" class="error-section">
+                    <span id="errorMessage"></span>
+                </div>
+
+                <!-- Audio Player -->
+                <div id="audioSection" class="audio-section">
+                    <h3>Ken's Voice Generated Successfully!</h3>
+                    <audio id="audioPlayer" controls class="audio-player">
+                        Your browser does not support the audio element.
+                    </audio>
+                    <div class="audio-info">
+                        <span>🎯 Powered by Coqui TTS</span>
+                        <span>⚡ Generated in real-time</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>MyNextLesson</h4>
+                <p>Empowering 8.5 billion learners with AI-powered education</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/demo-lesson">Today's Lesson</a></li>
+                    <li><a href="/voice-test.html">Voice Test Lab</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 MyNextLesson.com - Powered by Coqui TTS</p>
+        </div>
+    </footer>
+
+    <script>
+        const sampleTexts = [
+            "Hello, this is Ken. Welcome to MyNextLesson where we make learning extraordinary!",
+            "Today we're exploring the fascinating world of astrobiology and the search for life beyond Earth.",
+            "Did you know that scientists believe there could be over 40 billion Earth-like planets in our galaxy alone?",
+            "Learning is not just about memorizing facts, it's about developing curiosity and critical thinking skills.",
+            "Let's embark on this educational journey together and discover something amazing!"
+        ];
+
+        const textInput = document.getElementById('textInput');
+        const charCount = document.getElementById('charCount');
+        const generateBtn = document.getElementById('generateBtn');
+        const audioSection = document.getElementById('audioSection');
+        const audioPlayer = document.getElementById('audioPlayer');
+        const errorSection = document.getElementById('errorSection');
+        const errorMessage = document.getElementById('errorMessage');
+
+        // Update character count
+        textInput.addEventListener('input', function() {
+            charCount.textContent = `${this.value.length}/500`;
+        });
+
+        // Set sample text
+        function setSample(index) {
+            textInput.value = sampleTexts[index];
+            charCount.textContent = `${sampleTexts[index].length}/500`;
+        }
+
+        // Generate Ken's voice
+        async function generateKenVoice() {
+            const text = textInput.value.trim();
+            if (!text) return;
+
+            // Hide previous results
+            audioSection.classList.remove('show');
+            errorSection.classList.remove('show');
+
+            // Show loading state
+            generateBtn.disabled = true;
+            generateBtn.innerHTML = '<span class="spinner"></span>Generating Ken\'s Voice...';
+
+            try {
+                // Try multiple endpoints
+                const endpoints = [
+                    {
+                        url: 'http://146.190.166.163:5003/tts',
+                        method: 'POST',
+                        type: 'multipart'
+                    },
+                    {
+                        url: 'http://146.190.166.163:8000/generate-speech',
+                        method: 'POST',
+                        type: 'json'
+                    },
+                    {
+                        url: '/api/generate-ken-voice',
+                        method: 'POST',
+                        type: 'json'
+                    }
+                ];
+
+                let response;
+                let result;
+
+                for (const endpoint of endpoints) {
+                    try {
+                        if (endpoint.type === 'multipart') {
+                            const formData = new FormData();
+                            formData.append('text', text);
+                            formData.append('language', 'en');
+                            formData.append('speaker_wav', '/root/reference_ken.wav');
+
+                            response = await fetch(endpoint.url, {
+                                method: endpoint.method,
+                                body: formData,
+                            });
+                        } else {
+                            response = await fetch(endpoint.url, {
+                                method: endpoint.method,
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                },
+                                body: JSON.stringify({
+                                    text: text,
+                                    speed: 1.0,
+                                    pitch: 1.0,
+                                    voice_id: 'ken'
+                                }),
+                            });
+                        }
+
+                        if (response.ok) {
+                            result = await response.json();
+                            if (result.success && result.audio_url) {
+                                break;
+                            }
+                        }
+                    } catch (e) {
+                        console.log(`Endpoint ${endpoint.url} failed:`, e);
+                        continue;
+                    }
+                }
+
+                if (result && result.success && result.audio_url) {
+                    // Success! Play the audio
+                    audioPlayer.src = result.audio_url;
+                    audioSection.classList.add('show');
+                    audioPlayer.play().catch(console.error);
+                } else {
+                    throw new Error('All TTS endpoints failed. Please try again later.');
+                }
+
+            } catch (error) {
+                console.error('Ken voice generation error:', error);
+                errorMessage.textContent = `Error: ${error.message}`;
+                errorSection.classList.add('show');
+            } finally {
+                // Reset button
+                generateBtn.disabled = false;
+                generateBtn.innerHTML = '🎙️ Generate Ken\'s Voice';
+            }
+        }
+
+        // Check system status on load
+        async function checkSystemStatus() {
+            try {
+                const response = await fetch('http://146.190.166.163:5003/health', { 
+                    method: 'GET',
+                    timeout: 5000 
+                });
+                
+                if (response.ok) {
+                    document.getElementById('systemStatus').textContent = 'Coqui TTS Server Ready';
+                } else {
+                    document.getElementById('systemStatus').textContent = 'TTS System Checking...';
+                }
+            } catch (error) {
+                document.getElementById('systemStatus').textContent = 'TTS System Offline - Will use fallback';
+            }
+        }
+
+        // Initialize
+        checkSystemStatus();
+    </script>
+</body>
+</html> 
