@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Day 204 - Age 40 - fun - ken - DailyLesson.org</title>
-    <meta name="description" content="">
+    <meta name="description" content="Genetic Engineering - Editing the Code of Life">
     <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body class="lesson-page ken-theme">
@@ -17,11 +17,10 @@
             </ul>
         </nav>
     </header>
-
     <main>
         <section class="lesson-content">
             <div class="lesson-header">
-                <h1>daily_lesson_204</h1>
+                <h1>Genetic Engineering - Editing the Code of Life</h1>
                 <div class="lesson-meta">
                     <span class="day">Day 204</span>
                     <span class="age">Age 40</span>
@@ -29,49 +28,58 @@
                     <span class="avatar">ken</span>
                 </div>
             </div>
-
             <div class="avatar-display">
                 <img src="/assets/ken/avatar.jpg" alt="ken" class="avatar-image">
             </div>
-
             <div class="lesson-text">
                 <div class="introduction">
                     <h2>Introduction</h2>
-                    <p></p>
+                    <p>Welcome to the fun side of genetic engineering! Today, you'll discover how life is a magnificent collaboration of molecular systems, and how gene editing is changing the world. Get ready for a high-energy, adventure guide experience!</p>
                 </div>
-
                 <div class="main-content">
-                    <h2>Main Content</h2>
-                    
+                    <h2>3 Big Ideas</h2>
+                    <ol>
+                        <li>Life emerges from collaboration, not competition, at the molecular level.</li>
+                        <li>Simple building blocks, when organized, create incredible complexity.</li>
+                        <li>Biological systems depend on communication and information sharing.</li>
+                    </ol>
                 </div>
-
                 <div class="examples">
                     <h2>Examples</h2>
                     <ul>
-                        
+                        <li>How your body maintains health as you age: cellular systems cooperate to maintain function over time.</li>
+                        <li>Simple lifestyle changes create complex health improvements: consistent habits organize to create comprehensive wellness.</li>
+                        <li>How your body coordinates healing: molecular signals coordinate inflammation, repair, and recovery processes.</li>
                     </ul>
                 </div>
-
                 <div class="activities">
-                    <h2>Activities</h2>
-                    <ul>
-                        
-                    </ul>
+                    <h2>2 Fun Questions</h2>
+                    <ol>
+                        <li>Which is more important for life: competition or cooperation at the molecular level? (Hint: It's all about teamwork!)</li>
+                        <li>How do simple habits lead to complex health? (Hint: Consistency is key!)</li>
+                    </ol>
                 </div>
-
                 <div class="summary">
                     <h2>Summary</h2>
-                    <p></p>
+                    <p>Genetic engineering lets us edit the code of life, but the real magic is in how simple parts work together to create something extraordinary. Your body is a superhero team of molecules, and you have the power to guide them!</p>
                 </div>
-
                 <div class="vocabulary">
                     <h2>Key Terms</h2>
                     <ul>
-                        
+                        <li>Longevity</li>
+                        <li>Prevention</li>
+                        <li>Cellular Health</li>
+                        <li>Antioxidants</li>
+                        <li>Inflammation</li>
+                        <li>Genetic Expression</li>
+                        <li>Wellness</li>
                     </ul>
                 </div>
+                <div class="fortune">
+                    <h2>Daily Fortune</h2>
+                    <p>You are a magnificent collaboration of molecular systems. The same cooperative principles that enable molecular life also create successful human relationships and communities. Celebrate your complexity and keep building healthy habits!</p>
+                </div>
             </div>
-
             <div class="lesson-controls">
                 <button class="btn primary" onclick="playLesson()">Play Lesson</button>
                 <button class="btn secondary" onclick="switchAvatar()">Switch Avatar</button>
@@ -79,32 +87,14 @@
             </div>
         </section>
     </main>
-
     <footer>
-        <p>&copy; 2024 DailyLesson.org</p>
+        <p>&copy; 2025 DailyLesson.org</p>
     </footer>
-
     <script src="/assets/js/app.js"></script>
     <script>
-        // Lesson-specific JavaScript
-        function playLesson() {
-            // Implement audio/video playback
-            console.log('Playing lesson...');
-        }
-
-        function switchAvatar() {
-            const currentAvatar = 'ken';
-            const newAvatar = currentAvatar === 'ken' ? 'kelly' : 'ken';
-            window.location.href = window.location.href.replace(currentAvatar, newAvatar);
-        }
-
-        function adjustAge() {
-            const currentAge = 40;
-            const newAge = prompt('Enter your age (1-100):', currentAge.toString());
-            if (newAge && newAge >= 1 && newAge <= 100) {
-                window.location.href = window.location.href.replace(`age-${currentAge}`, `age-${newAge}`);
-            }
-        }
+        function playLesson() { console.log('Playing lesson...'); }
+        function switchAvatar() { window.location.href = window.location.href.replace('ken', 'kelly'); }
+        function adjustAge() { window.location.href = '/lessons/day-204/'; }
     </script>
 </body>
 </html>
